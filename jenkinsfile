@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('create a directory') {
+            steps {
+                 sh "mkdir -p myfolder"
+            }
+        }
+         stage('create a file') {
+            steps {
+                 writeFile file: 'xyz.txt', text: 'heeya everyone.'
+            }
+        }
+        stage('show file content') {
+            steps {
+                 sh 'ls -l'
+            }
+        }
+    }
+}
